@@ -1,11 +1,11 @@
 # VERSION 1.9.0-1
 # AUTHOR: Matthieu "Puckel_" Roisil
 # DESCRIPTION: Basic Airflow container
-# BUILD: docker build --rm -t puckel/docker-airflow .
-# SOURCE: https://github.com/puckel/docker-airflow
+# BUILD: docker build --rm -t aanari/docker-airflow .
+# SOURCE: https://github.com/aanari/docker-airflow
 
 FROM python:3.6-slim
-MAINTAINER Puckel_
+MAINTAINER aanari
 
 # Never prompts the user for choices on installation/configuration of packages
 ENV DEBIAN_FRONTEND noninteractive
@@ -73,7 +73,7 @@ COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 
 RUN chown -R airflow: ${AIRFLOW_HOME}
 
-EXPOSE 8080 5555 8793
+EXPOSE 8081 5555 8793
 
 USER airflow
 WORKDIR ${AIRFLOW_HOME}
